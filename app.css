@@ -1,3 +1,6 @@
 .jumbotron {
     background-image: url('./images/book.jpeg');
+    background-repeat: repeat-x;
+    height: 40vh;
+    margin-top: 5px;
 }
