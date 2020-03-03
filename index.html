@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" >
     <title>Book List</title>
 </head>
@@ -13,15 +13,16 @@
     <div class="jumbotron">
         <h1 class="text-center">Book List<i class="fas fa-book fa-1x" style="margin-left: 5px"></i></h1>
 
-        <form class="form-group">
+        <form class="form-group" id="book-form">
             <label for="title">Book Title</label>
-            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+            <input class="form-control form-control-lg" type="text" id="title" placeholder="Enter Book Title">
 
             <label for="title">Author</label>
-            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+            <input class="form-control form-control-lg" type="text" id="author" placeholder="Enter Book Author">
     
             <label for="isbn">ISBN#</label>
-            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+            <input class="form-control form-control-lg" type="text" id="isbn" placeholder="Enter ISBN Number">
+
             <input type="submit" value="Add Book" class="btn btn-primary">
         </form>
     </div>
