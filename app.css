@@ -3,9 +3,24 @@
     background-repeat: repeat-x;
     height: 40vh;
     margin-top: 5px;
+    padding: 0px;
+    color: black;
 }
 
 body {
     font-family: 'Goudy Bookletter 1911' ;
+    background: maroon;
+    color: white;
 }
 
+.container {
+    border: 10px solid black;
+}
+
+th {
+    color: white;
+}
+
+tr {
+    color: white;
+}
