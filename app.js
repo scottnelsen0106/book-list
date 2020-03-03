@@ -8,20 +8,8 @@ class Book {
 
 class UI {
     static displayBooks() {
-        const StoredBooks = [
-            {
-                title: 'Book One',
-                author: 'John Doe',
-                isbn: '12121212'
-            },
-            {
-                title: 'Book Two',
-                author: 'Jane Doe',
-                isbn: '1324244'
-            }
-        ];
-
-        const books = StoredBooks;
+        
+        const books = Store.getBooks();
 
         books.forEach((book) => UI.addBookToList(book));
     }
@@ -54,12 +42,44 @@ class UI {
         const container = document.querySelector('.jumbotron');
         const form = document.querySelector('#book-form');
         container.insertBefore(div, form);
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
 
     static clearFields() {
         document.querySelector('#title').value='';
         document.querySelector('#author').value='';
         document.querySelector('#isbn').value='';
+    }
+}
+
+class Store {
+    static getBooks() {
+        let books;
+        if(localStorage.getItem('books') === null) {
+            books = [];
+        } else {
+            books = JSON.parse(localStorage.getItem('books'));
+        }
+
+        return books;
+    }
+
+    static addBook(book) {
+        const books = Store.getBooks();
+        books.push(book);
+
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static removeBook(isbn) {
+        const books = Store.getBooks();
+
+        books.forEach((book, index) => {
+            if(book.isbn === isbn) {
+                books.splice(index, 1);
+            }
+        })
+        localStorage.setItem('books', JSON.stringify(books));
     }
 }
 
@@ -81,6 +101,8 @@ document.querySelector("#book-form").addEventListener("submit", (event) => {
     
     UI.addBookToList(book);
 
+    UI.showAlert('Book Added', 'success');
+
     UI.clearFields();
     }
 
@@ -88,4 +110,6 @@ document.querySelector("#book-form").addEventListener("submit", (event) => {
 
 document.querySelector('#book-list').addEventListener('click', (event)=> {
     UI.deleteBook(event.target);
+
+    UI.showAlert('Book Removed', 'success');
 })
